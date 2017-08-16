@@ -1,0 +1,70 @@
+group 'springRedis'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def defaultEncoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+List servlet = ['javax.servlet:javax.servlet-api:3.1.0']
+
+List apache_commons = [
+        "commons-codec:commons-codec:1.9",
+        "commons-io:commons-io:2.5"
+]
+
+/*junit单元测试支持*/
+List junit = ["junit:junit:4.12"]
+
+def spring_version="4.3.8.RELEASE"
+List spring =[
+        "org.springframework:spring-core:$spring_version",
+        "org.springframework:spring-beans:$spring_version",
+        "org.springframework:spring-aop:$spring_version",
+        "org.springframework:spring-context:$spring_version",
+        "org.springframework:spring-context-support:$spring_version",
+        "org.springframework:spring-web:$spring_version",
+        "org.springframework:spring-orm:$spring_version",
+        "org.springframework:spring-aspects:$spring_version",
+        "org.springframework:spring-webmvc:$spring_version",
+        "org.springframework:spring-test:$spring_version",
+        /*redisConnectionFactory支持*/
+        "org.springframework.data:spring-data-redis:1.8.6.RELEASE"
+]
+
+
+List aspectj = ["org.aspectj:aspectjrt:1.8.9"]
+
+/*日志支持*/
+List logger = [
+        'org.apache.logging.log4j:log4j-api:2.1',
+        'org.apache.logging.log4j:log4j-core:2.1',
+        'org.apache.logging.log4j:log4j-slf4j-impl:2.1',
+        'org.apache.logging.log4j:log4j-web:2.1',
+        'org.slf4j:jcl-over-slf4j:1.7.12'
+]
+
+/*redis支持*/
+List jedis = [
+        "redis.clients:jedis:2.9.0"
+]
+
+/*支持实体的JSON相关操作*/
+List fastjson = ["com.alibaba:fastjson:1.2.33"]
+
+/*Jackson2JsonRedisSerializerd的依赖包*/
+List jackson_databind = ["com.fasterxml.jackson.core:jackson-databind:2.9.0"]
+
+
+dependencies {
+    compile apache_commons,junit,spring,servlet,logger,aspectj,jedis,fastjson,jackson_databind
+    runtime apache_commons,spring,servlet,logger,aspectj,jedis,fastjson,jackson_databind
+}
