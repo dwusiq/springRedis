@@ -1,6 +1,5 @@
 package com.wusiq.test;
 
-import com.alibaba.fastjson.JSON;
 import com.wusiq.config.ApplicationConfig;
 import com.wusiq.config.RootConfig;
 import com.wusiq.service.stringRedisTemplate.StringRedisTemplateService;
@@ -14,11 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.swing.text.html.parser.Entity;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
- * 用户管理测试类
+ * stringRedisTemplate测试类
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)

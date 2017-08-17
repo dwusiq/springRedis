@@ -1,9 +1,11 @@
 package com.wusiq.entity;
 
+import java.io.Serializable;
+
 /**
  * 用户实体类
  */
-public class UserEntity{
+public class UserEntity implements Serializable{
 private Long id;
 private String userName;
 private Integer age;
